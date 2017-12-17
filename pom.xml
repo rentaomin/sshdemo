@@ -8,9 +8,32 @@
   <name>sshdemo Maven Webapp</name>
   <url>http://maven.apache.org</url>
   
-  
    <properties>  
       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>  
+      <spring-core.version>4.3.10.RELEASE</spring-core.version>
+      <spring-beans.version>4.3.10.RELEASE</spring-beans.version>
+      <spring-context.version>4.3.10.RELEASE</spring-context.version>
+      <spring-jdbc.version>4.3.10.RELEASE</spring-jdbc.version>
+      <spring-orm.version>4.3.10.RELEASE</spring-orm.version>
+      <spring-web.version>4.3.10.RELEASE</spring-web.version>
+      <spring-webmvc.version>4.3.10.RELEASE</spring-webmvc.version>
+      <spring-aop.version>4.3.10.RELEASE</spring-aop.version>
+      <aspectjweaver.version>1.7.1</aspectjweaver.version>
+      <hibernate-core.versioin>4.3.10.Final</hibernate-core.versioin>
+      <hibernate-entitymanager.version>4.3.11.Final</hibernate-entitymanager.version>
+      <hibernate-c3p0.version>4.3.10.Final</hibernate-c3p0.version>
+      <commons-collections.version>3.2.1</commons-collections.version>
+      <commons-beanutils.version>1.8.3</commons-beanutils.version>
+      <commons-lang3.version>3.4</commons-lang3.version>
+      <jstl.version>1.2</jstl.version>
+      <junit.version>4.12</junit.version>
+      <jsp-api.version>2.2</jsp-api.version>
+      <javax.servlet-api.version>3.1.0</javax.servlet-api.version>
+      <mysql-connector-java.version>5.1.21</mysql-connector-java.version>
+      <commons-dbcp.version>1.4</commons-dbcp.version>
+      <log4j.version>1.2.17</log4j.version>
+      <maven-compiler-plugin.version>2.3.2</maven-compiler-plugin.version>
+      <aspectjrt.version>1.8.10</aspectjrt.version>
   </properties>
    
   <dependencies>
@@ -20,97 +43,104 @@
 	<dependency>
 	    <groupId>org.springframework</groupId>
 	    <artifactId>spring-core</artifactId>
-	    <version>4.3.10.RELEASE</version>
+	    <version>${spring-core.version}</version>
 	</dependency>
   	
   	<!-- https://mvnrepository.com/artifact/org.springframework/spring-beans -->
 	<dependency>
 	    <groupId>org.springframework</groupId>
 	    <artifactId>spring-beans</artifactId>
-	    <version>4.3.10.RELEASE</version>
+	    <version>${spring-beans.version}</version>
 	</dependency>
   	
   	<!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
 	<dependency>
 	    <groupId>org.springframework</groupId>
 	    <artifactId>spring-context</artifactId>
-	    <version>4.3.10.RELEASE</version>
+	    <version>${spring-context.version}</version>
 	</dependency>
   		
   	<!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
 	<dependency>
 	    <groupId>org.springframework</groupId>
 	    <artifactId>spring-jdbc</artifactId>
-	    <version>4.3.10.RELEASE</version>
+	    <version>${spring-jdbc.version}</version>
 	</dependency>
   	
   	<!-- https://mvnrepository.com/artifact/org.springframework/spring-orm -->
 	<dependency>
 	    <groupId>org.springframework</groupId>
 	    <artifactId>spring-orm</artifactId>
-	    <version>4.3.10.RELEASE</version>
+	    <version>${spring-orm.version}</version>
 	</dependency>
   	
   	<!-- https://mvnrepository.com/artifact/org.springframework/spring-web -->
 	<dependency>
 	    <groupId>org.springframework</groupId>
 	    <artifactId>spring-web</artifactId>
-	    <version>4.3.10.RELEASE</version>
+	    <version>${spring-web.version}</version>
 	</dependency>
   	
   	<!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
 	<dependency>
 	    <groupId>org.springframework</groupId>
 	    <artifactId>spring-webmvc</artifactId>
-	    <version>4.3.10.RELEASE</version>
+	    <version>${spring-webmvc.version}</version>
 	</dependency>
   	
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-aop</artifactId>
+		<version>${spring-aop.version}</version>
+	</dependency>
+	
+	<dependency>
+		<groupId>org.aspectj</groupId>
+		<artifactId>aspectjweaver</artifactId>
+		<version>${aspectjweaver.version}</version>
+	</dependency>
   	
   	<!--hibernate  -->
-  	<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
 	<dependency>
 	    <groupId>org.hibernate</groupId>
 	    <artifactId>hibernate-core</artifactId>
-	    <version>5.2.10.Final</version>
+	    <version>${hibernate-core.versioin}</version>
 	</dependency>
+
   	
   	<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-entitymanager -->
 	<dependency>
 	    <groupId>org.hibernate</groupId>
 	    <artifactId>hibernate-entitymanager</artifactId>
-	    <version>4.3.11.Final</version>
-		    <exclusions>
-			    <groupId>org.hibernate.common</groupId>
-			    <artifactId>hibernate-commons-annotations</artifactId>
-		    </exclusions>
+	    <version>${hibernate-entitymanager.version}</version>
 	</dependency>
   	
   	<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-c3p0 -->
 	<dependency>
 	    <groupId>org.hibernate</groupId>
 	    <artifactId>hibernate-c3p0</artifactId>
-	    <version>4.3.10.Final</version>
+	    <version>${hibernate-c3p0.version}</version>
 	</dependency>
   	
   	<!-- https://mvnrepository.com/artifact/commons-collections/commons-collections -->
 	<dependency>
 	    <groupId>commons-collections</groupId>
 	    <artifactId>commons-collections</artifactId>
-	    <version>3.2.1</version>
+	    <version>${commons-collections.version}</version>
 	</dependency>
   	
   	<!-- https://mvnrepository.com/artifact/commons-beanutils/commons-beanutils -->
 	<dependency>
 	    <groupId>commons-beanutils</groupId>
 	    <artifactId>commons-beanutils</artifactId>
-	    <version>1.8.3</version>
+	    <version>${commons-beanutils.version}</version>
 	</dependency>
 	  	
 	 <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
 	<dependency>
 	    <groupId>org.apache.commons</groupId>
 	    <artifactId>commons-lang3</artifactId>
-	    <version>3.4</version>
+	    <version>${commons-lang3.version}</version>
 	</dependency>
 	 
 	  	
@@ -118,7 +148,7 @@
 	<dependency>
 	    <groupId>javax.servlet</groupId>
 	    <artifactId>jstl</artifactId>
-	    <version>1.2</version>
+	    <version>${jstl.version}</version>
 	</dependency>
   	
   	
@@ -126,7 +156,7 @@
 	<dependency>
 	    <groupId>junit</groupId>
 	    <artifactId>junit</artifactId>
-	    <version>4.12</version>
+	    <version>${junit.version}</version>
 	    <scope>test</scope>
 	</dependency>
 
@@ -134,7 +164,7 @@
 		<dependency>
 		    <groupId>javax.servlet.jsp</groupId>
 		    <artifactId>jsp-api</artifactId>
-		    <version>2.2</version>
+		    <version>${jsp-api.version}</version>
 		    <scope>provided</scope>
 		</dependency>
     	
@@ -142,7 +172,7 @@
 		<dependency>
 		    <groupId>javax.servlet</groupId>
 		    <artifactId>javax.servlet-api</artifactId>
-		    <version>3.1.0</version>
+		    <version>${javax.servlet-api.version}</version>
 		    <scope>provided</scope>
 		</dependency>
 		    	
@@ -151,31 +181,34 @@
 		<dependency>
 		    <groupId>mysql</groupId>
 		    <artifactId>mysql-connector-java</artifactId>
-		    <version>5.1.21</version>
+		    <version>${mysql-connector-java.version}</version>
 		</dependency>
     	
     	<!-- https://mvnrepository.com/artifact/commons-dbcp/commons-dbcp -->
 		<dependency>
 		    <groupId>commons-dbcp</groupId>
 		    <artifactId>commons-dbcp</artifactId>
-		    <version>1.4</version>
+		    <version>${commons-dbcp.version}</version>
 		</dependency>
     	
+    	<!--配置ins-databasedao依赖  -->
+    	<!-- https://mvnrepository.com/artifact/log4j/log4j -->
+		<dependency>
+		    <groupId>log4j</groupId>
+		    <artifactId>log4j</artifactId>
+		    <version>${log4j.version}</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.aspectj/aspectjrt -->
+		<dependency>
+		    <groupId>org.aspectj</groupId>
+		    <artifactId>aspectjrt</artifactId>
+		    <version>${aspectjrt.version}</version>
+		</dependency>
+		
+		
   </dependencies>
+  		
   
-  <build>  
-    <plugins>  
-        <!-- define the project compile level -->  
-        <plugin>  
-            <groupId>org.apache.maven.plugins</groupId>  
-            <artifactId>maven-compiler-plugin</artifactId>  
-            <version>2.3.2</version>  
-            <configuration>  
-                <source>1.8</source>  
-                <target>1.8</target>  
-            </configuration>  
-        </plugin>  
-    </plugins>  
- </build>
   
 </project>
