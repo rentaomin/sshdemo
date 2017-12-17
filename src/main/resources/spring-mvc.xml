@@ -9,9 +9,28 @@
 		
          <!--扫描包  -->
          <context:component-scan base-package="com.rtm.controller" />
+         
          <!--提供数据绑定，请求分发  -->
          <mvc:annotation-driven />
-
+         
+         <!--过滤静态资源  
+         	location 对应项目本地的路径
+         	mapping 对应请求路径
+         -->
+		<mvc:resources location="/WEB-INF/js/" mapping="/js/**"/>
+		<mvc:resources location="/WEB-INF/ui/" mapping="/ui/**"/>
+		<mvc:default-servlet-handler/>
+		
+		<!--配置请求返回数据类型  -->
+		<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"  >
+		    <property name="ignoreDefaultModelOnRedirect" value="true" />
+		    <property name="messageConverters">
+		        <list>
+		            <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>
+		        </list>
+		    </property>
+		</bean>
+		
          <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
                 <property name="prefix" value="/WEB-INF/views/" />
                 <property name="suffix" value=".jsp" />

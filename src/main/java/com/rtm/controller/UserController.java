@@ -4,12 +4,15 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import com.rtm.entity.User;
 import com.rtm.service.UserService;
 
 @Controller
-@RequestMapping("hello")
+@RequestMapping("user")
 public class UserController {
 	
 	private static final Logger logger = Logger.getLogger(UserController.class);
@@ -29,18 +32,23 @@ public class UserController {
 		
 	}
 	
-	@RequestMapping("/save")
-	public String saveUser(HttpServletRequest request) {
+
+	@ResponseBody
+	@RequestMapping("/saveUser")
+	public User saveUser(@ModelAttribute(value="user") User user) {
 		String msg = "hello springmvc !";
 		System.out.println(msg);
-		User user = new User();
-		user.setId(11);
-		user.setName("77");
-		user.setPassword("77");
-		request.setAttribute("user", user);
-		useService.saveUser(user);
+		User entity  = null;
+		if (user != null) {
+			 entity = useService.saveUser(user);
+		}
 		logger.info("保存");
-		return "userInfo";
-		
+		return entity;
+	}
+	
+	@RequestMapping("/index")
+	public String forwardIndex(@RequestParam(value="name")String name,HttpServletRequest request) {
+		request.setAttribute("name",name);
+		return "index";
 	}
 }
