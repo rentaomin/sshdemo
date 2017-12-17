@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+			           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+			           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
+			           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+			           http://www.springframework.org/schema/mvc  http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd"
+						default-autowire="byName" default-lazy-init="false">  
+
+	<!--配置dbcp  -->
+<!-- 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close"> 
+	    <property name="driverClassName" value="${jdbc.driverClassName}" />  
+	    <property name="url" value="${jdbc.url}" />  
+	    <property name="username" value="${jdbc.username}" />  
+	    <property name="password" value="${jdbc.password}" /> 
+	    <property name="maxActive" value="${jdbc.maxActive}" />
+	     
+	 </bean>   -->
+	 
+	 <!--配置c3p0数据源  -->
+	 <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+		 	<property name="driverClass" value="${jdbc.driverClassName}" />  
+		    <property name="jdbcUrl" value="${jdbc.url}" />  
+		    <property name="user" value="${jdbc.username}" />  
+		    <property name="password" value="${jdbc.password}" /> 
+		    <property name="minPoolSize" value="3" />  
+	        <property name="maxPoolSize" value="10" />  
+	        <property name="maxIdleTime" value="1800" />  
+	        <property name="acquireIncrement" value="3" />  
+	        <property name="maxStatements" value="1000" />  
+	        <property name="initialPoolSize" value="2" />  
+	        <property name="idleConnectionTestPeriod" value="60" />  
+	        <property name="acquireRetryAttempts" value="30" />  
+	        <property name="breakAfterAcquireFailure" value="true" />  
+	        <property name="testConnectionOnCheckout" value="false" />  
+	 </bean>						
+						
+		
+		
+		
+		
+						
+
+						
+</beans>

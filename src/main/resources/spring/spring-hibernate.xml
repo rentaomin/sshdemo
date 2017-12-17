@@ -11,29 +11,33 @@
 			           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
 			           http://www.springframework.org/schema/mvc  http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd"
 						default-autowire="byName" default-lazy-init="false">  
-	
-    <!--扫描使用注解的bean  -->
-    <context:component-scan base-package="com.rtm.service.*" />
-    
-    <!--  读取配置的jdbc文件  -->
-    <!-- PropertyPlaceholderConfigurer类中有个locations属性，接收的是一个数组，即我们可以在下面配好多个properties文件   -->
-	 <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">  
-	   <property name="locations"> 
-	        <array>  
-	            <value>classpath:jdbc.properties</value>  
-	        </array>  
-	    </property>  
-	</bean> 
-	
-	<!--与上面的配置是一样的，区别为上面便于理解  -->
-	<!-- <context:property-placeholder location="classpath:jdbc.properties"/> -->
-	<!--数据源  -->
-	<import resource="/spring/spring-datasource.xml"/>
-	<!--事务  -->
-	<import resource="/spring/spring-tx.xml"/>
- 	<!--hibernate  -->
-    <import resource="/spring/spring-hibernate.xml"/>
-	
 
-    
- </beans>
+		
+		<!--spring提供的hibernate配置  -->
+	 	<bean id="sessionFactory"  class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">  
+	       <property name="dataSource" ref="dataSource" />  
+	        <property name="configLocations" >  
+		       	<list>
+	          		 <value>classpath:hibernate.cfg.xml</value>  
+		       	</list>
+	       </property>  
+	       <property name="hibernateProperties">  
+	       	<props>
+	       	 	<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>  
+	            <prop key="hibernate.show_sql">true</prop>  
+	            <prop key="hibernate.hbm2ddl.auto">update</prop> 
+	       	</props>
+	       </property> 
+	   </bean>	
+	
+		<!--操作数据库 -->
+	    <bean id="hibernateTemplate" class="org.springframework.orm.hibernate4.HibernateTemplate">
+			<property name="sessionFactory" ref="sessionFactory" />
+		</bean>
+	
+	
+	
+	
+						
+						
+</beans>

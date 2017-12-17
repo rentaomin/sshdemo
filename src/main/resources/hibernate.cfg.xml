@@ -5,7 +5,12 @@
 <hibernate-configuration>  
     <session-factory>  
     
-        <!-- 测试 -->
+        <!-- 用户 -->
         <mapping resource="/hbm/User.hbm.xml"></mapping>  
+        
+        
+        
+        
+        
     </session-factory>  
 </hibernate-configuration>
