@@ -60,4 +60,9 @@ public class UserController {
 		}
 		return "index";
 	}
+	
+	@RequestMapping(value="/loginOut")
+	public String loginOut() {
+		return "content";
+	}
 }

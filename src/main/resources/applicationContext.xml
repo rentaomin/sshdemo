@@ -13,7 +13,7 @@
 						default-autowire="byName" default-lazy-init="false">  
 	
     <!--扫描使用注解的bean  -->
-    <context:component-scan base-package="com.rtm.service.*" />
+    <context:component-scan base-package="com.rtm.service.*,com.rtm.util.*" />
     
     <!--  读取配置的jdbc文件  -->
     <!-- PropertyPlaceholderConfigurer类中有个locations属性，接收的是一个数组，即我们可以在下面配好多个properties文件   -->

@@ -1,0 +1,6 @@
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@page import="org.springframework.util.StringUtils"%>
+<%@ taglib prefix="decorator" uri="http://www.opensymphony.com/sitemesh/decorator"%>
+<%@page import="org.springframework.web.util.WebUtils"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="ctx" value="${pageContext.request.contextPath}" />
